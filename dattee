@@ -1,0 +1,37 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package testdaterange;
+import java.time.LocalDate;
+    
+import java.time.LocalDate;
+import java.util.Iterator;
+
+public class DateRange implements Iterable<LocalDate> {
+    
+    LocalDate earli, end, now;
+        
+    public DateRange(LocalDate earli, LocalDate end){
+        this.earli = earli;
+        this.end = akhirend;
+        this.now = earli;
+    }
+
+    @Override
+    public Iterator<LocalDate> iterator() {
+        return new DateRangeIterator(this.earli,this.end);
+    }
+    
+    public boolean contains(LocalDate localdate){
+        return (localdate.isAfter(earli) && localdate.isBefore(end)) 
+        || localdate.equals(earli || localdate.equals(end);
+    }
+    
+    public boolean overlap(DateRange daterange){
+        return contains(daterange.earli) || contains(daterange.end) 
+        || (daterange.earli.isBefore(this.earli) && daterange.end.isAfter(this.end));
+    }
+        
+}
